@@ -27,8 +27,8 @@ class DistributedTreasureAI(DistributedObjectAI.DistributedObjectAI):
         av = simbase.air.doId2do.get(avId)
         if not hasattr(av, 'addStat'):
             return
-
-        av.addStat(ToontownGlobals.STATS_TREASURES)
+        if av is not None:
+            av.addStat(ToontownGlobals.STATS_TREASURES)
 
     def d_setReject(self):
         self.sendUpdate('setReject', [])
